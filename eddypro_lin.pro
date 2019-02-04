@@ -19,6 +19,8 @@ CONFIG += warn_on
 CONFIG += debug_and_release
 CONFIG += c++14
 
+TRANSLATIONS = tra/eddypro_en.ts
+
 # Build tree with shadow building approach
 include(build_tree.pri)
 
