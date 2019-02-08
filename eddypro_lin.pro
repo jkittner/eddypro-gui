@@ -19,6 +19,22 @@ CONFIG += warn_on
 CONFIG += debug_and_release
 CONFIG += c++14
 
+unix{
+    CONFIG(debug, debug|release) {
+        CONFIG += quazip-local
+    }
+    CONFIG(quazip-qt5, quazip|quazip-qt5|quazip-local) {
+        QUAZIP_NAME = quazip5
+        QUAZIP_INC = /usr/include/quazip5
+    } else:CONFIG(quazip-local, quazip|quazip-qt5|quazip-local) {
+        QUAZIP_NAME = quazip
+        QUAZIP_INC = $$_PRO_FILE_PWD_/libs/quazip-0.7.1/quazip
+    } else {
+        QUAZIP_NAME = quazip
+        QUAZIP_INC = /usr/include/quazip
+    }
+}
+
 TRANSLATIONS = tra/eddypro_en.ts
 
 # Build tree with shadow building approach
@@ -49,8 +65,12 @@ CONFIG(debug, debug|release) {
     DEFINES += QT_DEBUG
 
     # to suppress qt and 3rdparty library warnings
-    QMAKE_CXXFLAGS += -isystem /usr/include/quazip
-    QMAKE_CXXFLAGS += -isystem "$$_PRO_FILE_PWD_/libs/quazip-0.7.1/quazip"
+    unix {
+        QMAKE_CXXFLAGS += -isystem $$QUAZIP_DEV
+    } else {
+        QMAKE_CXXFLAGS += -isystem "$$QT_PATH/include"
+        QMAKE_CXXFLAGS += -isystem "$$_PRO_FILE_PWD_/libs/quazip-0.7.1/quazip"
+    }
 
     win32 {
         # mingw warnings
@@ -104,7 +124,6 @@ CONFIG(debug, debug|release) {
     DEFINES += QT_NO_DEBUG_OUTPUT
     DEFINES += QT_NO_WARNING_OUTPUT
 
-    QMAKE_CXXFLAGS += -isystem /usr/include/quazip
     macx {
         QMAKE_PRE_LINK += && $$_PRO_FILE_PWD_/scripts/build/mac-update-translations.sh$$escape_expand(\\n\\t)
 
