@@ -123,7 +123,7 @@ Use `scripts/build/lin-build-eddypro.sh` for more help, especially for quazip.
             for both debug and release targets
         3.2 check all the listed libs as dependencies
     4. In the 'quazip.pro' project settings:
-        4.1 set the build directory to '..\..\..\..\build\libs\build-quazip-0.7.1-qt-5.4.2-mingw-4.9.1-x86_64'
+        4.1 set the build directory to '..\..\..\..\build\libs\build-quazip-0.7.3-qt-5.4.2-mingw-4.9.1-x86_64'
             for both debug and release targets
     5. In the 'eddypro.pro' project, build both targets -->
 

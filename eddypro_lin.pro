@@ -28,7 +28,7 @@ unix{
         QUAZIP_INC = /usr/include/quazip5
     } else:CONFIG(quazip-local, quazip|quazip-qt5|quazip-local) {
         QUAZIP_NAME = quazip
-        QUAZIP_INC = $$_PRO_FILE_PWD_/libs/quazip-0.7.1/quazip
+        QUAZIP_INC = $$_PRO_FILE_PWD_/libs/quazip-0.7.3/quazip
     } else {
         QUAZIP_NAME = quazip
         QUAZIP_INC = /usr/include/quazip
@@ -69,7 +69,7 @@ CONFIG(debug, debug|release) {
         QMAKE_CXXFLAGS += -isystem $$QUAZIP_INC
     } else {
         QMAKE_CXXFLAGS += -isystem "$$QT_PATH/include"
-        QMAKE_CXXFLAGS += -isystem "$$_PRO_FILE_PWD_/libs/quazip-0.7.1/quazip"
+        QMAKE_CXXFLAGS += -isystem "$$_PRO_FILE_PWD_/libs/quazip-0.7.6/quazip"
     }
 
     win32 {

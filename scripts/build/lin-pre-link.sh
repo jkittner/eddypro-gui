@@ -84,7 +84,7 @@ if [ -n "$d" ] ;then
     QUAZIP_BUILD_DIR="`basename $d`"
 else
 # otherwise, use default in-place building
-    QUAZIP_BUILD_DIR="quazip-0.7.1/quazip"
+    QUAZIP_BUILD_DIR="quazip-0.7.3/quazip"
 fi
 
 echo "[QUAZIP_BUILD_DIR: $QUAZIP_BUILD_DIR]"

@@ -1,6 +1,6 @@
 #!/bin/sh
 
-QZ="quazip-0.7.1"
+QZ="quazip-0.7.3"
 
 # shadow build in debug or release
 # usage
